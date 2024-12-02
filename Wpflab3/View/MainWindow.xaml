@@ -1,0 +1,33 @@
+﻿<Window x:Class="Wpflab3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpflab3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0 0 0 10">
+            <TextBlock Text="Общая информация" FontWeight="Bold" FontSize="16" Margin="0 0 0 10" />
+            <TextBlock Text="Лучший сборщик: " FontSize="14" />
+            <TextBlock Text="{Binding BestWorkerInfo}" FontSize="14" FontWeight="Bold" Foreground="Green" />
+            <TextBlock Text="Самый отстающий сборщик: " FontSize="14" />
+            <TextBlock Text="{Binding WorstWorkerInfo}" FontSize="14" FontWeight="Bold" Foreground="Red" />
+            <TextBlock Text="Наивысшая производительность: " FontSize="14" />
+            <TextBlock Text="{Binding BestPerformanceDayInfo}" FontSize="14" FontWeight="Bold" />
+        </StackPanel>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Workers}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0 10 0 0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="*" />
+                <DataGridTextColumn Header="Изделия" Binding="{Binding TotalProducts}" Width="*" />
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding TotalCost}" Width="*" />
+                <DataGridTextColumn Header="Месячный заработок" Binding="{Binding MonthlySalary}" Width="*" />
+                <DataGridTextColumn Header="Рабочие дни" Binding="{Binding WorkDays}" Width="2*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
