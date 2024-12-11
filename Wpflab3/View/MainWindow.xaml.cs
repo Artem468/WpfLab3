@@ -8,9 +8,9 @@ namespace Wpflab3;
 /// </summary>
 public partial class MainWindow : Window 
 {
-    public MainWindow()
+    public MainWindow(string jwtToken)
     {
         InitializeComponent();
-        DataContext = new MainViewModel();
+        DataContext = new MainViewModel(jwtToken);
     }
 }
